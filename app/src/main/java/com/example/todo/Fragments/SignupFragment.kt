@@ -89,6 +89,12 @@ class SignupFragment : Fragment() {
 
                     }
                 }
+                else{
+                    binding.progressBar.visibility=ProgressBar.INVISIBLE
+
+                    Toast.makeText(requireContext(),"Password doesn't match",Toast.LENGTH_SHORT).show()
+
+                }
             }
             else{
 
