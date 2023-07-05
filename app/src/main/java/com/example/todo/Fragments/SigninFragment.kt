@@ -87,11 +87,11 @@ class SigninFragment : Fragment() {
             {
                 Toast.makeText(requireContext(),"Empty Fields Not Allowed",Toast.LENGTH_SHORT).show()
             }
-q        }
+     }
 
     }
 
 
 
 
-}q
+}
