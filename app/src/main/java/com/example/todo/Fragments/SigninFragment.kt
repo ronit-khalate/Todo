@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
@@ -53,20 +54,25 @@ class SigninFragment : Fragment() {
             navController.navigate(R.id.action_signinFragment_to_signupFragment)
         }
 
-        val enteredEmail=binding.emailEt.text.toString()
-        val enterdPassword=binding.passEt.text.toString()
+
 
 
 
         binding.nextBtn.setOnClickListener {
 
+            val enteredEmail=binding.emailEt.text.toString()
+            val enterdPassword=binding.passEt.text.toString()
+
             if(enteredEmail.isNotEmpty() && enterdPassword.isNotEmpty()){
+
+                binding.progressBar.visibility=ProgressBar.VISIBLE
 
                 auth.signInWithEmailAndPassword(enteredEmail,enterdPassword)
                     .addOnCompleteListener {task ->
 
                         if(task.isSuccessful){
                             //! Going to home Page
+                            binding.progressBar.visibility=ProgressBar.INVISIBLE
                             Toast.makeText(requireContext(),"Logged in successfully",Toast.LENGTH_SHORT).show()
                             navController.navigate(R.id.action_signinFragment_to_homeFragment)
 
@@ -77,7 +83,11 @@ class SigninFragment : Fragment() {
                         }
                     }
             }
-        }
+            else
+            {
+                Toast.makeText(requireContext(),"Empty Fields Not Allowed",Toast.LENGTH_SHORT).show()
+            }
+q        }
 
     }
 

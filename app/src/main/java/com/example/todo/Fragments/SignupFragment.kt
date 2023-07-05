@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
@@ -64,11 +65,13 @@ class SignupFragment : Fragment() {
 
             if( email.isNotEmpty() && pass.isNotEmpty() && verifyPass.isNotEmpty()){
 
-
+                binding.progressBar.visibility=ProgressBar.VISIBLE
                 if(pass==verifyPass){
                     auth.createUserWithEmailAndPassword(email,pass).addOnCompleteListener {
 
                         if (it.isSuccessful) {
+
+                            binding.progressBar.visibility=ProgressBar.INVISIBLE
                             Toast.makeText(
                                 requireContext(),
                                 "Registered Successfully",
@@ -86,6 +89,10 @@ class SignupFragment : Fragment() {
 
                     }
                 }
+            }
+            else{
+
+                Toast.makeText(requireContext(),"Empty Fields Not Allowed",Toast.LENGTH_SHORT).show()
             }
 
 
