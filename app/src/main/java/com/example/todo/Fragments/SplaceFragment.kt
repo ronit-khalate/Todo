@@ -33,6 +33,7 @@ class SplaceFragment : Fragment() {
         val handler = Handler(Looper.myLooper()!!)
         handler.postDelayed(Runnable {
 
+            auth.signOut()
             if(auth.currentUser != null){
 
                 navController.navigate(R.id.action_splaceFragment_to_homeFragment)
