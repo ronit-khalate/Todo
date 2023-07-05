@@ -79,6 +79,7 @@ class SigninFragment : Fragment() {
                         }
                         else{
 
+                            binding.progressBar.visibility=ProgressBar.INVISIBLE
                             Toast.makeText(requireContext(),task.exception?.message.toString(),Toast.LENGTH_SHORT).show()
                         }
                     }
