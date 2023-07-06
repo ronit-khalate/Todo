@@ -12,7 +12,10 @@
         tools:layout="@layout/fragment_splace" >
         <action
             android:id="@+id/action_splaceFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/splaceFragment"
+            app:popUpToInclusive="true"
+            />
         <action
             android:id="@+id/action_splaceFragment_to_signinFragment"
             app:destination="@id/signinFragment" />
@@ -24,7 +27,10 @@
         tools:layout="@layout/fragment_signin" >
         <action
             android:id="@+id/action_signinFragment_to_signupFragment"
-            app:destination="@id/signupFragment" />
+            app:destination="@id/signupFragment"
+            app:popUpTo="@id/signinFragment"
+            app:popUpToInclusive="true"
+            />
         <action
             android:id="@+id/action_signinFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
