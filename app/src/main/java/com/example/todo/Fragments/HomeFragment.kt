@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
@@ -160,6 +161,8 @@ class HomeFragment : Fragment()
 
     }
     fun getDataFromFirebase() {
+
+        binding.rvProgressBar.visibility=ProgressBar.VISIBLE
         dbReference.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
 
@@ -177,6 +180,9 @@ class HomeFragment : Fragment()
                 }
 
                 adapder.notifyDataSetChanged()
+
+                binding.rvProgressBar.visibility=ProgressBar.INVISIBLE
+
             }
 
             override fun onCancelled(error: DatabaseError) {
