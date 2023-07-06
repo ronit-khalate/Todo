@@ -1,2 +1,2 @@
 # APK -> re
-[Click here to download the Android APK](D:\androidPractice\Todo\app\build\outputs\apk\debug)
+[Click here to download the Android APK](build/outputs/apk/debug/Todo.apk)
